@@ -47,4 +47,16 @@ class Auction
     bid_names = bid_names.uniq
     return bid_names
   end
+
+  def bidder_info
+    bidder_hash = Hash.new {|h, k| h[k] = {budget: 0, items: nil}}
+    @items.each do |item|
+      item.bids.each do |attendee, bid|
+        require 'pry'; binding.pry
+        bidder_hash[attendee][:budget] = attendee.budget
+        bidder_hash[attendee][:items] = x
+      end
+    end
+  end
+
 end
